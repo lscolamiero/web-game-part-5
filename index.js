@@ -5,19 +5,13 @@ const pc = newPlayableCharacter(100, 110)
 const npc = newNonPlayableCharacter(50, 300)
 
 // have the NPC start walking east immediately
-npc.walkNorth(1400,function(){
-    npc.walkEast(1200, function(){
-        npc.walkSouth(300, function(){
-            npc.walkEast(1500, function(){
-                npc.walkSouth(1500, function(){
-                    npc.walkWest(2700, function(){
-                        npc.walkNorth(400)
-                    })
-                })
-            })
-        })
-    })
-})
+npc.walkNorth(1400)
+    .then(() => npc.walkEast(1200))
+    .then(() => npc.walkSouth(300))
+    .then(() => npc.walkEast(1500))
+    .then(() => npc.walkSouth(1500))
+    .then(() => npc.walkWest(2700))
+    .then(() => npc.walkNorth(400))
 
 // Create the inventory
 const inventory = newInventory()
@@ -32,3 +26,29 @@ move(newImage('assets/well.png')).to(500, 575)
 move(newItem('assets/sword.png')).to(500, 555)
 move(newItem('assets/shield.png')).to(165, 335)
 move(newItem('assets/staff.png')).to(600, 250)
+
+// npc.walkNorth(1400,function(){
+//     npc.walkEast(1200, function(){
+//         npc.walkSouth(300, function(){
+//             npc.walkEast(1500, function(){
+//                 npc.walkSouth(1500, function(){
+//                     npc.walkWest(2700, function(){
+//                         npc.walkNorth(400)
+//                     })
+//                 })
+//             })
+//         })
+//     })
+// })
+
+
+
+// Promise function 
+
+// npc.walkNorth(1400)
+//     .then(() => npc.walkEast(1200))
+//     .then(() => npc.walkSouth(300))
+//     .then(() => npc.walkEast(1500))
+//     .then(() => npc.walkSouth(1500))
+//     .then(() => npc.walkWest(2700))
+//     .then(() => npc.walkNorth(400))
